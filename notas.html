@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="notas" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <title>notas</title>
+    <script language="javascript">
+        notas = new Array(40);
+        var aprovados = 0;
+        var mediaG = 0;
+        var acimaDaMedia = 0;
+        quantidadeAlunos = 40;
+
+        function pontosFaltantes(notaruim) {
+
+            for (var i = 0; i < 40; i++) {
+            document.write('<tr><td align="center">' + (i+1) + '</td>');
+            document.write('<td>' + notas[i] + '</td>');  
+            
+            if(notas[i] >= 6)
+            {
+                document.write("<td><img src='POSITIVO.png' width='40' heigth='40'></td>");
+                document.write("<td align='center' width='300'>X</td>");
+            }
+            else
+            {
+                document.write("<td align='center'><img src='NEGATIVO.png' width='40' heigth='40'></td>");
+                vermelha = 6 - notas[i]
+                document.write("<td align='center' width='300'>" + vermelha + "</td>");
+            }
+        }
+
+        }
+        
+    </script>
+    </head>
+<body>
+    <center>
+    <script language="javascript">
+       
+       
+
+       for (var ii = 0; ii < 40; ii++) {
+            notas[ii] = parseFloat(window.prompt("Digite a " + (ii+1) + "° media final:"));
+            
+            mediaG = notas[ii]+mediaG;
+ 
+        }
+        for (ii = 0; ii < 40; ii++) {
+
+            if (notas[ii] > mediaG / quantidadeAlunos) {
+                acimaDaMedia++;
+            }
+            if (notas[ii] >= 6) {
+                    aprovados++;
+            }
+     
+        }
+
+
+        document.write("<table border='3'>");
+        document.write("<tr><td colspan='3'>Media Global da turma: </td>");
+        document.write("<td colspan='1'>" + mediaG / quantidadeAlunos + "</td></tr>");
+        document.write("<tr><td colspan='3'>Alunos acima da media: </td>");
+        document.write("<td colspan='1'>" + acimaDaMedia + "</td></tr>");
+        document.write("<tr><td colspan='3'>Percentual de aprovados: </td>");   
+        document.write("<td colspan='1'>" + aprovados / quantidadeAlunos * 100 + "%</td></tr>");  
+        
+        document.write("<tr><td> Aluno</td>");
+        document.write("<td> Media Final</td>");
+        document.write("<td>Visual Indicativo</td>");
+        document.write("<td width='150'>Pontos Faltantes</td></tr>");
+
+        pontosFaltantes()
+        document.write("</table>");
+    </script>
+</body>
+</html>
